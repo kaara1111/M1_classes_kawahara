@@ -1,0 +1,22 @@
+匿名化データ：noisedD(長さN<=100)
+候補データ：candidateD(長さM=200)
+
+dist_list = []
+for cData in candidateD:
+	for nData in noisedD:
+		dist_list.append(calc_distance(cData, nData))
+dist_listを「優先度」に従ってソート
+距離が小さい上位N個の候補データを含まれているものとして提出
+
+def calc_distance(cData, nData):
+	カテゴリデータなら違っていたら1，同じなら0
+	連続データなら差分
+
+--------------------------------------------
+distanceはカテゴリデータならひとまとめにしてもいいかも
+例えばデータの種類が[cat1,cat2,cat3,con1,con2](cat:カテゴリ，con:連続)
+となっているのであれば，その距離は[cat,con1,con2]とする．
+ソート後上位N個以内に候補データの同一インデックスが存在すれば二つ目以降は無視する．
+***distanceのソートに当たり，ソートの順番を決める必要がある．***
+→各チームの匿名化データを見て決める必要性
+
